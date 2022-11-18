@@ -49,6 +49,23 @@ class Game extends Component {
     }
   };
 
+  nextQuestion = () => {
+    const {
+      props: { history },
+    } = this;
+    const { renderIndex } = this.state;
+    const LAST_INDEX = 4;
+    if (renderIndex === LAST_INDEX) {
+      history.push('/feedback');
+      this.savePlayerInStorage();
+    } else {
+      this.setState((prevState) => ({
+        renderIndex: prevState.renderIndex + 1,
+        isAnswered: false,
+      }));
+    }
+  };
+
   render() {
     const {
       state: {
@@ -95,5 +112,22 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   updateScore: (score, assertion) => dispatch(getUpdatedScore(score, assertion)),
 });
+
+Game.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  updateScore: PropTypes.func.isRequired,
+  ranking: PropTypes.shape({
+    picture: PropTypes.string,
+  }).isRequired,
+  url: PropTypes.string.isRequired,
+};
+
+Game.defaultProps = {
+  history: {
+    push: PropTypes.func,
+  },
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
