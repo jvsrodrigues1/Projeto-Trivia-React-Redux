@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { getPlayerAction } from '../redux/actions';
 import inicialGame from '../service/localStoragePlayer';
 
 class Login extends Component {
@@ -88,6 +90,19 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  getPlayer: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+};
+
+Login.defaultProps = {
+  history: {
+    push: PropTypes.func,
+  },
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getPlayer: (nome, email) => dispatch(getPlayerAction(nome, email)),
