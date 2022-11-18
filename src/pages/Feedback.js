@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaRegGrinBeamSweat } from 'react-icons/fa';
 import { RiEmotionSadLine } from 'react-icons/ri';
+import PropTypes from 'prop-types';
 import Header from '../Components/Header';
 
 class Feedback extends React.Component {
