@@ -32,7 +32,6 @@ class Question extends React.Component {
     });
   }
 
-  // Função para atualizar o Timer
   updateTimer = () => {
     const ONE_SECOND = 1000;
     const intervalId = setInterval(
@@ -132,3 +131,22 @@ class Question extends React.Component {
             })
           }
         </div>
+        <div>
+          {
+            (isAnswered || isTimeOut) && (
+              <button
+                data-testid="btn-next"
+                type="button"
+                onClick={ nextQuestion }
+                className="next-button"
+              >
+                Next
+              </button>
+            )
+          }
+        </div>
+      </section>
+    );
+  }
+}
+export default Question;
