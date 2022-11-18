@@ -64,4 +64,9 @@ const mapStateToProps = (state) => ({
   score: state.player.score,
 });
 
+Feedback.propTypes = {
+  assertions: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
 export default connect(mapStateToProps)(Feedback);
