@@ -149,4 +149,17 @@ class Question extends React.Component {
     );
   }
 }
+Question.propTypes = {
+  question: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    correct_answer: PropTypes.string.isRequired,
+    difficulty: PropTypes.string.isRequired,
+    incorrect_answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    question: PropTypes.string.isRequired,
+  }).isRequired,
+  handleClick: PropTypes.func.isRequired,
+  isAnswered: PropTypes.bool.isRequired,
+  nextQuestion: PropTypes.func.isRequired,
+};
+
 export default Question;
