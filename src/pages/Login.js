@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getPlayerAction } from '../redux/actions';
 import inicialGame from '../service/localStoragePlayer';
 import logo from '../trivia.png';
@@ -16,7 +16,7 @@ class Login extends Component {
   handleClick = async () => {
     const { history, getPlayer } = this.props;
     const { nome, email } = this.state;
-    const token = await this.fetchToken();
+    const token = await this.getTokens();
     inicialGame(token);
     getPlayer(nome, email);
     history.push('/game');
@@ -34,6 +34,12 @@ class Login extends Component {
   handleChange = (event) => {
     const { target: { value, name } } = event;
     this.setState({ [name]: value }, this.checkInputs);
+  };
+
+  getTokens = async () => {
+    const response = await fetch('https://opentdb.com/api_token.php?command=request');
+    const data = await response.json();
+    return data.token;
   };
 
   render() {
