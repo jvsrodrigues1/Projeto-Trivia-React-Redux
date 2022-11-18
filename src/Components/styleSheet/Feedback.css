@@ -1,0 +1,85 @@
+.feedback {
+  background: black;
+  background-position: top;
+  background-size: cover;
+  color: white;
+  height: 100%;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.button-ranking {
+  background-color: #fc008f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px;
+  text-align: center;
+  width: 160px;
+}
+
+.button-play-again {
+  background-color: green;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px;
+  text-align: center;
+  width: 180px;
+}
+
+.buttons {
+  border: 3px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.points {
+  display: flex;
+  font-size: 30px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.better {
+  align-items: center;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  font-family: Courier New , Courier , monospace;
+  font-size: 30px;
+  justify-content: center;
+  margin: 10px 500px;
+  padding: 15px;
+}
+
+.well-done {
+  align-items: center;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  font-family: Courier New , Courier , monospace;
+  font-size: 30px;
+  justify-content: center;
+  margin: 10px 500px;
+  padding: 15px;
+}
+
+.sad-icon {
+  font-size: 60px;
+}
+
+.happy-icon {
+  font-size: 60px;
+}
+

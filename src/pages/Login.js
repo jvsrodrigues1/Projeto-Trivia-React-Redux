@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getPlayerAction } from '../redux/actions';
 import inicialGame from '../service/localStoragePlayer';
 import logo from '../trivia.png';
+import '../Components/styleSheet/Login.css';
 
 class Login extends Component {
   state = {

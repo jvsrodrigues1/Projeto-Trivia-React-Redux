@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Timer from './Timer';
+import './styleSheet/Question.css';
 
 class Question extends React.Component {
   state = {

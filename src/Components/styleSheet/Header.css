@@ -1,0 +1,38 @@
+header {
+  align-items: center;
+  background-color: inherit;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+header span {
+  margin: 0 3px;
+}
+
+.header-logo {
+  align-self: flex-end;
+  margin-left: 8px;
+  margin-top: 10px;
+  width: 200px;
+}
+
+.player-contaniner {
+  align-items: center;
+  display: flex;
+  margin: 0 8px;
+}
+
+.player-info-container {
+  text-align: end;
+}
+
+.player-contaniner p {
+  margin: 0;
+}
+
+.player-image {
+  border-radius: 50px;
+  margin: 5px 10px;
+  width: 70px;
+}
