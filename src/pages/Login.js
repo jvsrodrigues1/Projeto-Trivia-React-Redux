@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getPlayerAction } from '../redux/actions';
 import inicialGame from '../service/localStoragePlayer';
 import logo from '../trivia.png';
@@ -11,6 +11,15 @@ class Login extends Component {
     nome: '',
     email: '',
     isButtonDisabled: true,
+  };
+
+  handleClick = async () => {
+    const { history, getPlayer } = this.props;
+    const { nome, email } = this.state;
+    const token = await this.fetchToken();
+    inicialGame(token);
+    getPlayer(nome, email);
+    history.push('/game');
   };
 
   checkInputs = () => {
@@ -25,21 +34,6 @@ class Login extends Component {
   handleChange = (event) => {
     const { target: { value, name } } = event;
     this.setState({ [name]: value }, this.checkInputs);
-  };
-
-  getTokens = async () => {
-    const response = await fetch('https://opentdb.com/api_token.php?command=request');
-    const data = await response.json();
-    return data.token;
-  };
-
-  handleClick = async () => {
-    const { history, getPlayer } = this.props;
-    const { nome, email } = this.state;
-    const token = await this.getTokens();
-    inicialGame(token);
-    getPlayer(nome, email);
-    history.push('/game');
   };
 
   render() {

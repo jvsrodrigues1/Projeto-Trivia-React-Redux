@@ -3,9 +3,6 @@ import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
 import { screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Login from "../pages/Login";
-import App from "../App";
-import tokenResponse from "./mocks/token";
-import questionsResponse from "./mocks/questions";
 
 describe("Verifica a página de Login", () => {
   test("Verifica se os inputs são renderizados na tela", () => {
@@ -36,4 +33,5 @@ describe("Verifica a página de Login", () => {
 
     expect(button).toBeEnabled();
   });
+  
 });
