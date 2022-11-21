@@ -18,10 +18,12 @@ describe('Testes da página de Game', () => {
 
   afterEach(() => jest.clearAllMocks());
 
-  test('Verifica se ao clicar em uma resposta o botão de próximo é habilitado', async () => {
+  it('Verifica se ao clicar em uma resposta o botão de próximo é habilitado', async () => {
+    act(() => {
     jest.useFakeTimers();
     const { history } = renderWithRouterAndRedux(<App />);
     history.push('/game');
+  });
 
     await waitFor(() => expect(global.fetch).toBeCalled());
 
@@ -30,7 +32,7 @@ describe('Testes da página de Game', () => {
     expect(screen.getByRole('button', { name: /next/i })).toBeInTheDocument();
   });
 
-  test('Verifica se na quinta resposta o usuário é redirecionado para a tela de feedback', async () => {
+  it('Verifica se na quinta resposta o usuário é redirecionado para a tela de feedback', async () => {
     jest.useFakeTimers();
     const { history } = renderWithRouterAndRedux(<App />);
     history.push('/game');
@@ -44,7 +46,7 @@ describe('Testes da página de Game', () => {
     expect(history.location.pathname).toBe('/feedback');
   });
 
-  test('Verifica se ao receber uma lista de perguntas vazias volta para a página de login', async () => {
+  it('Verifica se ao receber uma lista de perguntas vazias volta para a página de login', async () => {
     jest.spyOn(global, "fetch").mockImplementationOnce(() =>
       Promise.resolve({
         json: () => Promise.resolve(invalidTokenQuestionsResponse),
@@ -59,7 +61,7 @@ describe('Testes da página de Game', () => {
     expect(history.location.pathname).toBe('/');
   });
 
-  test('Verifica se a contagem de pontos é feita corretamente', async () => {
+  it('Verifica se a contagem de pontos é feita corretamente', async () => {
     const ranking = [
       {
         name: 'jogador1',
